@@ -11,6 +11,8 @@ app.controller("TodoCtrl", function($scope){
 
   $scope.showListView = true;   // this is using a boolean to show/hide stuff in the div created in the HTML (go to below function ..allitems and newitems)
 
+  $scope.newTask = {}; // this is making a "new task" and assigning it an empty object
+
   $scope.items = [     //hard coding an array
     {
       id:0,
@@ -42,4 +44,18 @@ app.controller("TodoCtrl", function($scope){
     console.log("you clicked new item");
     $scope.showListView = false;      // this is using a boolean to hide stuff in the div created in the HTML
   }
+
+
+  $scope.addNewItem = function(){
+    $scope.newTask.isCompleted = false; //you must define new task above (basically as a variable/empty obj) and set to false
+    $scope.newTask.id = $scope.items.length; //this will add "3 , 4, 5, 6 , etc to the above array's ID"
+    console.log("newTask in function", $scope.newTask);
+    $scope.items.push($scope.newTask); //pushes the user input to the new array
+    $scope.newTask = {};
+    $scope.showListView = true;
+  }
+
+
+
+
 });
