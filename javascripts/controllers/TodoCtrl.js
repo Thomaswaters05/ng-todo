@@ -1,32 +1,18 @@
 "use strict";
 
-app.controller("TodoCtrl", function($scope){
+app.controller("TodoCtrl", function($scope, ItemFactory){
   $scope.welcome = "hello";     // this is like a console log AKA it tests it
 
   $scope.showListView = true;   // this is using a boolean to show/hide stuff in the div created in the HTML (go to below function ..allitems and newitems)
 
   $scope.newTask = {}; // this is making a "new task" and assigning it an empty object
 
-  $scope.items = [     //hard coding an array
-    {
-      id:0,
-      task: "Mow the lawn",
-      isCompleted: true, //should show up in to do list
-      assignedTo: "Tommy"
-    },
-     {
-      id:1,
-      task: "Get boxes out the garage", //should show up in completed list
-      isCompleted: false,
-      assignedTo: "DG"
-    },
-     {
-      id:2,
-      task: "Sleep!",
-      isCompleted: false, //should show up in completed list
-      assignedTo: "Owen"
-    },
-  ];
+  $scope.items = [];    //we put this info (data for people/to do items/etc) in FB database
+
+  ItemFactory.getItemList().then(function(fbItems){
+    $scope.items = fbItems;
+    console.log("items from controller", fbItems);
+  })
 
   $scope.allItems = function(){   //this is using a click event from index.html aka ng-click() for allItems()
     console.log("you clicked all items");
