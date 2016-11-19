@@ -37,5 +37,19 @@ var postNewItem = function(newItem){ //this will put the info in to the FB datab
   })
 }
 
-  return{getItemList:getItemList, postNewItem:postNewItem}
+var deleteItem = function (itemId){
+  return $q((resolve, reject)=> {
+    $http.delete(`${FIREBASE_CONFIG.databaseURL}/items/${itemId}.json`)
+    .success(function(deleteResponse){
+      resolve(deleteResponse);
+    })
+    .error(function(deleteError){
+      reject(deleteError);
+    })
+  })
+
+};
+
+
+  return{getItemList:getItemList, postNewItem:postNewItem, deleteItem:deleteItem}
 });

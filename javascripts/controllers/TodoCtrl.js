@@ -43,8 +43,14 @@ app.controller("TodoCtrl", function($scope, ItemFactory){
       $scope.newTask = {};
       $scope.showListView = true;
     })
+  }
 
-  };
+  $scope.deleteItem = function(itemId){
+    console.log('you deleted this');
+    ItemFactory.deleteItem(itemId).then(function(response){
+      getItems();
+    })
+  }
 
 });
 

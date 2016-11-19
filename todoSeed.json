@@ -12,8 +12,10 @@
     },
     "item2": {
       "task": "Get boxes out the garage",
-      "isCompleted": false,
+      "isCompleted": true,
       "assignedTo": "DG"
     }
   }
 }
+
+
