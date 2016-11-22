@@ -1,5 +1,7 @@
 "use strict";
 
+// *** WE ARE NO LONGER USING THIS***
+
 app.controller("TodoCtrl", function($scope, ItemFactory){
   $scope.welcome = "hello";     // this is like a console log AKA it tests it
 
@@ -21,16 +23,6 @@ app.controller("TodoCtrl", function($scope, ItemFactory){
     console.log("items from controller", fbItems);
   })
 
-  $scope.allItems = function(){   //this is using a click event from index.html aka ng-click() for allItems()
-    console.log("you clicked all items");
-    $scope.showListView = true;     // this is using a boolean to show stuff in the div created in the HTML
-
-  };
-
-  $scope.newItem = function(){    //this is using a click event from index.html aka ng-click() for newItem()
-    console.log("you clicked new item");
-    $scope.showListView = false;      // this is using a boolean to hide stuff in the div created in the HTML
-  };
 
 
   $scope.addNewItem = function(){
