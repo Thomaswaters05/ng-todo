@@ -5,6 +5,12 @@ app.controller("AuthCtrl", function($scope, $location, $rootScope, AuthFactory, 
   $scope.registerContainer = false ; //these are just variables
 
 
+  if($location.path() === "/logout"){  //$location is the current URL in your browser
+    AuthFactory.logout();
+    $rootScope.user = {};
+    $location.url("/auth");  //takes you back to the auth page on logout -that is what this if statement is saying
+  }
+
   let logMeIn = function(loginStuff){
      AuthFactory.authenticate(loginStuff).then(function(didLogin){
       console.log("didLogin", didLogin);
