@@ -1,4 +1,5 @@
 "use strict";
+//THIS IS WHERE YOU PUT YOUR ROUTES AS WELL!!
 
 // ****!!THIS IS WHERE WE WILL CALL FIREBASE!!****
 app.run(function(FIREBASE_CONFIG){ // this is where you are USING firebase DB
@@ -8,6 +9,10 @@ app.run(function(FIREBASE_CONFIG){ // this is where you are USING firebase DB
 
 app.config(function($routeProvider){
   $routeProvider
+    .when('/auth', {
+      templateUrl: 'partials/auth.html', //see partials folder- auth- this logs in user
+      controller: 'AuthCtrl' // see new controller file
+    })
     .when('/items/list', {
       templateUrl: 'partials/item-list.html', //see partials folder
       controller: 'ItemListCtrl' // see new controller file

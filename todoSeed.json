@@ -3,19 +3,33 @@
     "item0": {
       "task": "Mow the lawn",
       "isCompleted": true,
-      "assignedTo": "Tommy"
+      "assignedTo": "Tommy",
+      "uid": "AMoutvBW8SREvzhvjxKFq5RwvKB3"
     },
     "item1": {
       "task": "Get boxes out the garage",
       "isCompleted": false,
-      "assignedTo": "DG"
+      "assignedTo": "Erica",
+      "uid": "pTEgYmnpG1WVQKGgLEIEoIZskKP2"
     },
     "item2": {
       "task": "Get boxes out the garage",
       "isCompleted": true,
-      "assignedTo": "DG"
+      "assignedTo": "Miller",
+      "uid": "psVtbRZkScZPh06GWIHXyvZY1s83"
     }
-  }
-}
+  },
+  "users": {
+    "user0": {
+      "uid": "AMoutvBW8SREvzhvjxKFq5RwvKB3",
+      "username": "a"
+    },
+    "user1": {
+      "uid": "pTEgYmnpG1WVQKGgLEIEoIZskKP2",
+      "username": "b"
+    }
 
+  }
+
+}
 

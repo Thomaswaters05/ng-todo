@@ -2,9 +2,9 @@
 
 app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG){
 
-  var getItemList = function(){
+  var getItemList = function(userId){
     return $q((resolve, reject)=>{
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/items.json`)  //items.json corresponds to the FB DATABASE ITSELF
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/items.json?orderBy="uid"&equalTo="${userId}"`)  //items.json corresponds to the FB DATABASE ITSELF
       .success(function(response){
         let items = [];
         Object.keys(response).forEach(function(key){
@@ -25,7 +25,8 @@ var postNewItem = function(newItem){ //this will put the info in to the FB datab
       JSON.stringify({
         assignedTo: newItem.assignedTo,
         isCompleted: newItem.isCompleted,
-        task: newItem.task
+        task: newItem.task,
+        uid: newItem.uid
       })
       )
       .success(function(postResponse){
@@ -66,13 +67,14 @@ var getSingleItem = function (itemId){
 
 
 var editItem = function(editItem){
-  console.log("factory edit", editItem);
+  // console.log("factory edit", editItem);
   return $q((resolve,reject)=>{
     $http.put(`${FIREBASE_CONFIG.databaseURL}/items/${editItem.id}.json`,
       JSON.stringify({
         assignedTo: editItem.assignedTo,
         isCompleted: editItem.isCompleted,
-        task: editItem.task
+        task: editItem.task,
+        uid: editItem.uid
       })
       )
       .success(function(editResponse){
